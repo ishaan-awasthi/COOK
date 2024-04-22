@@ -6,21 +6,23 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         try {
-            Scanner scanner = new Scanner(new File(new File(".").getAbsolutePath()+"/src/sample.txt"));
+            // Helper classes for compilation
+            Scanner scanner = new Scanner(new File(new File("").getAbsolutePath()+"/src/sample.txt"));
             Classifier classifier = new Classifier();
             Lexer lexer = new Lexer();
             Interpreter interpreter = new Interpreter();
-            HashMap<String, Object> variables = new HashMap();
+            HashMap<String, Object> variables = new HashMap<>();
 
+            // Runtime loop
             while (scanner.hasNextLine()) {
                 String current = scanner.nextLine();
-                String keyword = classifier.classify(current);
-                Object[] tokens = lexer.analyze(current, keyword);
-                interpreter.execute(keyword, tokens, variables);
+                String key = classifier.classify(current);
+                Object[] tokens = lexer.analyze(current, key);
+                interpreter.execute(key, tokens, variables, scanner, classifier, lexer, interpreter);
             }
 
         } catch (FileNotFoundException e) {
-            System.out.println("ERROR NO FILE: " + e.getMessage());
+            throw new Error("\n\nError: File not found!\n" + e.getMessage());
         }
     }
 }
