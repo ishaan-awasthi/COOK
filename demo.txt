@@ -1,0 +1,43 @@
+COMMENTS:
+Anything without one of the following keys (like this line itself, and the headers) is by default a comment.
+
+DECLARING INTEGERS:
+Measure 5 cups of int1.
+Measure 2 pinches of int2.
+Measure a proper size of bowl.
+
+DECLARING STRINGS:
+Prepare a bowl of "string value" brand stringname.
+
+ADDITION:
+In the bowl, mix the int1 and the int2.
+In the bowl, mix the int1 and the 30000.
+
+SUBTRACTION:
+In the bowl, keep the int1 and reduce the int2.
+
+MULTIPLICATION:
+In the bowl, fold the int1 into the int2 number of layers.
+
+DIVISION:
+In the bowl, divide the int1 into the int2 number of portions.
+
+MODULUS:
+In the bowl, save the excess int1 after dividing into the int2 number of portions.
+
+CONDITIONALS:
+If the int1 is more than the int2,
+in the bowl, mix the int1 and the int2.
+
+REVERSE WHILE LOOP:
+Until the int2 is more than the int1,
+in the int1, mix the int1 and the int1.
+
+INPUT:
+Find how much of the int1 you have.
+Find what brand of the stringname you have.
+
+OUTPUT:
+Serve the int1.
+Serve the stringname.
+Serve the "thanks for using the demo!"
