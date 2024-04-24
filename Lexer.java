@@ -13,28 +13,46 @@ public class Lexer {
                 String sub = line.substring(line.indexOf("until the") + 10);
                 String first = sub.substring(0, findEndDelimiter(sub, 0));
                 String second = "";
+                boolean justnum = false;
 
                 if (line.contains("is more than")) {
                     condition = "until more";
                     sub = line.substring(line.indexOf(first) + first.length() + 1);
                     sub = sub.substring(sub.indexOf("the") + 4);
-                    second = sub.substring(0, findEndDelimiter(sub, 0));
+                    if(line.matches(".*\\d.*")){
+                        second = String.valueOf(Integer.parseInt(line.replaceAll("\\D", "")));
+                        justnum = true;
+                    } else{
+                        second = sub.substring(0, findEndDelimiter(sub, 0));
+                        justnum = false;
+                    }
                 } else if (line.contains("is less than")) {
                     condition = "until less";
                     sub = line.substring(line.indexOf(first) + first.length() + 1);
                     sub = sub.substring(sub.indexOf("the") + 4);
-                    second = sub.substring(0, findEndDelimiter(sub, 0));
+                    if(line.matches(".*\\d.*")){
+                        second = String.valueOf(Integer.parseInt(line.replaceAll("\\D", "")));
+                        justnum = true;
+                    } else{
+                        second = sub.substring(0, findEndDelimiter(sub, 0));
+                        justnum = false;
+                    }
                 } else if (line.contains("is equal to")) {
                     condition = "until equal";
                     sub = line.substring(line.indexOf(first) + first.length() + 1);
                     sub = sub.substring(sub.indexOf("the") + 4);
-                    second = sub.substring(0, findEndDelimiter(sub, 0));
+                    if(line.matches(".*\\d.*")){
+                        second = String.valueOf(Integer.parseInt(line.replaceAll("\\D", "")));
+                        justnum = true;
+                    } else{
+                        second = sub.substring(0, findEndDelimiter(sub, 0));
+                    }
                 } else if (line.contains("is gone")) {
                     condition = "until gone";
                 } else {
                     condition = null;
                 }
-                return new Object[]{condition, first, second};
+                return new Object[]{condition, first, second, justnum};
             }
 
             if (key.equals("conditional")) {
@@ -42,22 +60,44 @@ public class Lexer {
                 String sub = line.substring(line.indexOf("the") + 4);
                 String first = sub.substring(0, findEndDelimiter(sub, 0));
                 String second = "";
+                boolean justnum = false;
 
                 if (line.contains("is more than")) {
                     condition = "is more";
                     sub = line.substring(line.indexOf(first) + first.length() + 1);
                     sub = sub.substring(sub.indexOf("the") + 4);
-                    second = sub.substring(0, findEndDelimiter(sub, 0));
+                    if(line.matches(".*\\d.*")){
+                        // Regex is used here to isolate potential numbers
+                        second = String.valueOf(Integer.parseInt(line.replaceAll("\\D", "")));
+                        justnum = true;
+                    } else{
+                        second = sub.substring(0, findEndDelimiter(sub, 0));
+                        justnum = false;
+                    }
                 } else if (line.contains("is less than")) {
                     condition = "is less";
                     sub = line.substring(line.indexOf(first) + first.length() + 1);
                     sub = sub.substring(sub.indexOf("the") + 4);
-                    second = sub.substring(0, findEndDelimiter(sub, 0));
+                    if(line.matches(".*\\d.*")){
+                        // Regex is used here to isolate potential numbers
+                        second = String.valueOf(Integer.parseInt(line.replaceAll("\\D", "")));
+                        justnum = true;
+                    } else{
+                        second = sub.substring(0, findEndDelimiter(sub, 0));
+                        justnum = false;
+                    }
                 } else if (line.contains("is equal to")) {
                     condition = "is equal";
                     sub = line.substring(line.indexOf(first) + first.length() + 1);
                     sub = sub.substring(sub.indexOf("the") + 4);
-                    second = sub.substring(0, findEndDelimiter(sub, 0));
+                    if(line.matches(".*\\d.*")){
+                        // Regex is used here to isolate potential numbers
+                        second = String.valueOf(Integer.parseInt(line.replaceAll("\\D", "")));
+                        justnum = true;
+                    } else{
+                        second = sub.substring(0, findEndDelimiter(sub, 0));
+                        justnum = false;
+                    }
                 } else if (line.contains("is gone")) {
                     condition = "is gone";
                 } else if (line.contains("is same brand as")) {
@@ -68,7 +108,7 @@ public class Lexer {
                 } else {
                     condition = null;
                 }
-                return new Object[]{condition, first, second};
+                return new Object[]{condition, first, second, justnum};
             }
 
             if (key.equals("input")) {
@@ -81,7 +121,11 @@ public class Lexer {
 
             if (key.equals("print")) {
                 String sub = line.substring(line.indexOf("the") + 4);
-                String value = sub.substring(0, findEndDelimiter(sub, 0));
+
+                String value = line.contains("\"")
+                        ? sub.substring(sub.indexOf("\"")+1, sub.substring(sub.indexOf("\"")+1).indexOf("\"")+1)
+                        : sub.substring(0, findEndDelimiter(sub, 0));
+
                 return new Object[]{value};
             }
 
@@ -90,6 +134,7 @@ public class Lexer {
 
                 String sub = line.substring(line.indexOf("of") + 3);
                 String varname = sub.substring(0, findEndDelimiter(sub, 0));
+                // Regex is used here to isolate potential numbers
                 Integer value = line.matches(".*\\d.*")
                         ? Integer.parseInt(line.replaceAll("\\D", ""))
                         : 0;
@@ -105,7 +150,7 @@ public class Lexer {
             }
 
             if (key.equals("add") || key.equals("subtract")) {
-                // Same syntax is used for addition/subtraction, excluding the key
+                // Same syntax is used for addition/subtraction, excluding key
 
                 String sub = line.substring(line.indexOf("in the") + 7);
                 String populate = sub.substring(0, findEndDelimiter(sub, 0));
@@ -115,12 +160,23 @@ public class Lexer {
                 sub = line.substring(line.indexOf(populate) + populate.length() + 1);
                 sub = sub.substring(sub.indexOf(first) + first.length() + 1);
                 sub = sub.substring(sub.indexOf("the") + 4);
-                String second = sub.substring(0, findEndDelimiter(sub, 0));
-                return new Object[]{populate, first, second};
+
+                String second;
+                boolean justnum;
+
+                if(line.matches(".*\\d.*")){
+                    // Regex is used here to isolate potential numbers
+                    second = String.valueOf(Integer.parseInt(line.replaceAll("\\D", "")));
+                    justnum = true;
+                } else{
+                    second = sub.substring(0, findEndDelimiter(sub, 0));
+                    justnum = false;
+                }
+                return new Object[]{populate, first, second, justnum};
             }
 
             if (key.equals("multiply") || key.equals("divide")) {
-                // Same syntax is used for multiplication/division, excluding the key
+                // Same syntax is used for multiplication/division, excluding key
 
                 String sub = line.substring(line.indexOf("in the") + 7);
                 String populate = sub.substring(0, findEndDelimiter(sub, 0));
@@ -128,8 +184,19 @@ public class Lexer {
                 sub = sub.substring(sub.indexOf("the") + 4);
                 String first = sub.substring(0, findEndDelimiter(sub, 0));
                 sub = line.substring(line.indexOf("into the") + 9);
-                String second = sub.substring(0, findEndDelimiter(sub, 0));
-                return new Object[]{populate, first, second};
+
+                String second;
+                boolean justnum;
+
+                if(line.matches(".*\\d.*")){
+                    // Regex is used here to isolate potential numbers
+                    second = String.valueOf(Integer.parseInt(line.replaceAll("\\D", "")));
+                    justnum = true;
+                } else{
+                    second = sub.substring(0, findEndDelimiter(sub, 0));
+                    justnum = false;
+                }
+                return new Object[]{populate, first, second, justnum};
             }
 
             if (key.equals("mod")) {
@@ -139,8 +206,19 @@ public class Lexer {
                 sub = sub.substring(sub.indexOf("excess") + 7);
                 String first = sub.substring(0, findEndDelimiter(sub, 0));
                 sub = line.substring(line.indexOf("into the") + 9);
-                String second = sub.substring(0, findEndDelimiter(sub, 0));
-                return new Object[]{populate, first, second};
+
+                String second;
+                boolean justnum;
+
+                if(line.matches(".*\\d.*")){
+                    // Regex is used here to isolate potential numbers
+                    second = String.valueOf(Integer.parseInt(line.replaceAll("\\D", "")));
+                    justnum = true;
+                } else{
+                    second = sub.substring(0, findEndDelimiter(sub, 0));
+                    justnum = false;
+                }
+                return new Object[]{populate, first, second, justnum};
             }
 
             return new Object[]{};
