@@ -1,16 +1,21 @@
-Thanks for opening my cookbook! Today, we'll be making a simple balsamic glaze. This recipe makes about 5 cups of glaze.
-First, measure a proper size of pot to use for the boiling. Make sure it is large enough!
+This is an example of what a program/recipe written in COOK looks like!
+-----------------------------------------------------------------------
+
+Thanks for opening my cookbook! Today, we'll be making a simple balsamic glaze. This recipe makes a little over cups of glaze.
+You need to first measure a proper size of pot to use for the boiling. Make sure it is large enough!
 
 Next, we'll go over ingredients (there aren't too many!)
-Measure 4 cups of balsamic-vinegar and set it aside.
-Measure 1 cup of brown-sugar and keep it next to the vinegar.
+Measure 20 cups of balsamic-vinegar.
+Measure 5 cups of brown-sugar!
 Finally, measure about 1 cup of honey as well.
 
-Turn on low heat and in the pot mix the balsamic-vinegar and the brown-sugar well.
+Turn on low heat, and in the pot mix the balsamic-vinegar and the brown-sugar well.
 Stirring in the pot slowly, pour the honey into the pot too and mix.
 Before you move on to the next step, make sure everything has completely dissolved!
 
-When you're ready, turn the flame on high. You'll need to reduce in the pot until the pot has the brown-sugar gone.
-It's a long process, this can even take up to 30 minutes!
+Bring your stove to a simmer for a reduction until the brown-sugar is gone:
+Boil in the brown-sugar and reduce the brown-sugar by the 1 cup each minute.
 
-When it's finally done serve or store your glaze right from the pot so that it stays fresh!
+In the pot, reduce everything in the pot by the 5 cups of brown-sugar.
+
+When it's finally done, serve or store your glaze right from the pot so that it stays fresh. Enjoy!
