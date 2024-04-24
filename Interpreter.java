@@ -13,12 +13,15 @@ public class Interpreter {
 
             if(key.equals("until")){
                 boolean condition = true;
+                int second = !(tokens[0].equals("until gone"))
+                        ? (boolean) tokens[3] ? Integer.parseInt((String) tokens[2]) : (int) variables.get(tokens[2])
+                        :0;
                 if(tokens[0].equals("until more")){
-                    condition = (int)variables.get(tokens[1]) > (int)variables.get(tokens[2]);
+                    condition = (int)variables.get(tokens[1]) > second;
                 } else if(tokens[0].equals("until less")){
-                    condition = (int)variables.get(tokens[1]) < (int)variables.get(tokens[2]);
+                    condition = (int)variables.get(tokens[1]) < second;
                 } else if(tokens[0].equals("until equal")){
-                    condition = (int)variables.get(tokens[1]) == (int)variables.get(tokens[2]);
+                    condition = (int)variables.get(tokens[1]) == second;
                 } else if(tokens[0].equals("until gone")){
                     condition = (int)variables.get(tokens[1]) > 0;
                 } else{
@@ -34,11 +37,11 @@ public class Interpreter {
 
                     // Repeat conditionals to check if condition has been met
                     if(tokens[0].equals("until more")){
-                        condition = (int)variables.get(tokens[1]) > (int)variables.get(tokens[2]);
+                        condition = (int)variables.get(tokens[1]) > second;
                     } else if(tokens[0].equals("until less")){
-                        condition = (int)variables.get(tokens[1]) < (int)variables.get(tokens[2]);
+                        condition = (int)variables.get(tokens[1]) < second;
                     } else if(tokens[0].equals("until equal")){
-                        condition = (int)variables.get(tokens[1]) == (int)variables.get(tokens[2]);
+                        condition = (int)variables.get(tokens[1]) == second;
                     } else if(tokens[0].equals("until gone")){
                         condition = (int)variables.get(tokens[1]) > 0;
                     } else{
@@ -49,13 +52,15 @@ public class Interpreter {
 
             if(key.equals("conditional")){
                 boolean condition = false;
-                if(tokens[0].equals("until more")){
-                    condition = (int)variables.get(tokens[1]) > (int)variables.get(tokens[2]);
-                } else if(tokens[0].equals("until less")){
-                    condition = (int)variables.get(tokens[1]) < (int)variables.get(tokens[2]);
-                } else if(tokens[0].equals("until equal")){
-                    condition = (int)variables.get(tokens[1]) == (int)variables.get(tokens[2]);
-                } else if(tokens[0].equals("until gone")){
+                int second = (boolean)tokens[3] ? Integer.parseInt((String) tokens[2]) : (int)variables.get(tokens[2]);;
+
+                if(tokens[0].equals("is more")){
+                    condition = (int)variables.get(tokens[1]) > second;
+                } else if(tokens[0].equals("is less")){
+                    condition = (int)variables.get(tokens[1]) < second;
+                } else if(tokens[0].equals("is equal")){
+                    condition = (int)variables.get(tokens[1]) == second;
+                } else if(tokens[0].equals("is gone")){
                     condition = (int)variables.get(tokens[1]) > 0;
                 } else{
                     throw new Error("\n\nError: Not a valid comparison!");
@@ -72,7 +77,6 @@ public class Interpreter {
 
             if(key.equals("input")){
                 // Runtime user input is processed
-
                 if(variables.containsKey(tokens[0]) && variables.get(tokens[0]) instanceof Integer){
                     System.out.println("Input " + tokens[0] + " amount.");
                     variables.put(tokens[0], userinput.nextInt());
@@ -85,7 +89,7 @@ public class Interpreter {
             }
 
             if(key.equals("print")){
-                // Can print both variables and plain strings
+                // Can print both variables and "plain strings"
                 String toprint = variables.containsKey(tokens[0])
                         ? String.valueOf(variables.get(tokens[0]))
                         : String.valueOf(tokens[0]);
@@ -102,31 +106,31 @@ public class Interpreter {
 
             if(key.equals("add")){
                 int first = (int)variables.get(tokens[1]);
-                int second = (int)variables.get(tokens[2]);
+                int second = (boolean)tokens[3] ? Integer.parseInt((String) tokens[2]) : (int)variables.get(tokens[2]);;
                 variables.put(tokens[0], first+second);
             }
 
             if(key.equals("subtract")){
                 int first = (int)variables.get(tokens[1]);
-                int second = (int)variables.get(tokens[2]);
+                int second = (boolean)tokens[3] ? Integer.parseInt((String) tokens[2]) : (int)variables.get(tokens[2]);;
                 variables.put(tokens[0], first-second);
             }
 
             if(key.equals("multiply")){
                 int first = (int)variables.get(tokens[1]);
-                int second = (int)variables.get(tokens[2]);
+                int second = (boolean)tokens[3] ? Integer.parseInt((String) tokens[2]) : (int)variables.get(tokens[2]);;
                 variables.put(tokens[0], first*second);
             }
 
             if(key.equals("divide")){
                 int first = (int)variables.get(tokens[1]);
-                int second = (int)variables.get(tokens[2]);
+                int second = (boolean)tokens[3] ? Integer.parseInt((String) tokens[2]) : (int)variables.get(tokens[2]);;
                 variables.put(tokens[0], first/second);
             }
 
             if(key.equals("mod")){
                 int first = (int)variables.get(tokens[1]);
-                int second = (int)variables.get(tokens[2]);
+                int second = (boolean)tokens[3] ? Integer.parseInt((String) tokens[2]) : (int)variables.get(tokens[2]);;
                 variables.put(tokens[0], first%second);
             }
         } catch (IndexOutOfBoundsException e) {
