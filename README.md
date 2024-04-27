@@ -61,7 +61,7 @@ Also note that while (almost) any syntax works, for the purposes of this documen
 
 <p> </p>
 <h1>Computation</h1>
-COOK has built-in functionality for basic arithmetic You can perform on operations on two variables together, or one variable and then one integer. The keys and references for each operation differs slightly; the semi-stripped syntax is as listed below:
+COOK has built-in functionality for basic arithmetic. You can perform on operations on two variables together, or one variable and then one integer. The keys and references for each operation differs slightly; the semi-stripped syntax is as listed below:
 
 <h2>Addition</h2>
 
