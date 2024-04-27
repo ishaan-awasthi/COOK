@@ -159,11 +159,15 @@ Find what brand of the stringvariable you have.
 ```
 In both cases, the compiler will pause execution until the user inputs a valid input.
 
+<h2>Inline Comments</h2>
+
+Now that you've learned all of the top-level keys, comments are a simple matter. As you already know, any word that isn't a relevant token (operation keys, argument keys, reference keys, or parameter values) is overlooked by the compiler, allowing for near total freedom of expression. As such, any line of code that does not contain one of the top-level keys will by default be considered a comment in its entireity. Secondary keys, such as conditional arguments, are fine to include as they only get tokenized when the corresponding top-level key is present. You can write whole novels in the middle of your code, so long as you don't use any of the top-level keys listed here!
+
 <h2>"Is Gone" Argument: Conditionals/Loops</h2>
 
 In addition to the variable-variable comparisons utilized by COOK's conditionals and loops, an additional argument `is gone` is defined. This built-in condition checks whether the referenced integer variable is equal to zero, allowing for a more elegant syntax in specific cases. See the included `sample.txt` COOK program for an example of this operator in action.
 
-<h4>Alternative Filetypes</h4>
+<h2>Alternative Filetypes</h2>
 
 While the standard input for COOK is `.txt` files, certain other filetypes may also work. Alternative filetypes range from `.md`, to `.csv`, all the way to even `.py`; if it can be accessed and read as plain text, it should theoretically be compatible with COOK. However, depending on your JDK version, `.java` files themselves may fail as the `util.Scanner` module processes them differently and will expect some kind of class declaration in the header.
 
