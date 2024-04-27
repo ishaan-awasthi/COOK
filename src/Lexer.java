@@ -4,7 +4,7 @@ public class Lexer {
     public Object[] analyze(String line, String key) {
         // Lexical analysis and tokenization
         // AKA isolating the relevant tokens
-
+        
         try {
             line = line.toLowerCase();
 
