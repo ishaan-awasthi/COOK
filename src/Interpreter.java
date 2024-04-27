@@ -7,7 +7,7 @@ public class Interpreter {
 
     public void execute(String key, Object[] tokens, HashMap variables, Scanner scanner, Classifier classifier, Lexer lexer, Interpreter interpreter){
         // Code generation, converting to Java
-
+        
         try{
             Scanner userinput = new Scanner(System.in);
 
