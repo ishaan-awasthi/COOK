@@ -3,7 +3,7 @@ public class Classifier {
 
     public String classify(String line){
         // Defining COOK syntax and vocabulary
-
+        
         try {
             line = line.toLowerCase();
             if(line.contains("until")){return("until");}
