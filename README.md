@@ -25,7 +25,11 @@ Grab your favorite spatula, and let's get started!
 <p> </p>
 <h1>Setup and I/O</h1>
 
-Clone the repository to your Desktop, and create a new Java project in your preferred IDE. I'm partial to IntelliJ IDEA for Java, which automatically creates all the directories for the JDK. Whichever IDE you prefer, copy the Java class files from your clone to the `/src/` subdirectory in your created project.
+If you have git installed, you can just clone the repository to your Desktop:
+```
+git clone https://github.com/ishaan-awasthi/COOK
+```
+Create a new Java project in your preferred IDE. I'm partial to IntelliJ IDEA for Java, which automatically creates all the directories for the JDK. Whichever IDE you prefer, copy the Java class files from your clone to the `/src/` subdirectory in your created project.
 
 COOK programs are written line-by-line in `.txt` files. After cloning the repository, you'll need to edit the following line in the `Main.java` class to reference your COOK program:
 ```
@@ -35,22 +39,38 @@ The standard stream for both output and error handling (as well as runtime user 
 
 
 
+<p> </p>
+<h1>Syntax Rules (or the lack thereof)</h1>
+
+<h2>Keys</h2>
+
+COOK utilizes a variety of keys in the lexer, such as top-level process keys that signal the general intention behind a line of code, second-level argument keys to modify the behavior of the top-level process, and reference keys that point to important tokens such as variable names and their values. These keys (and any parameters pointed to by a reference key) are the only parts of the code that are tokenized. 
+
+As such, COOK is an example of a forgiving language. You have complete freedom when it comes to adding filler text, punctuation, capitalization, putting the top-level process keys anywhere in the line, or even putting integer values in the middle of a word (see <a href="https://github.com/ishaan-awasthi/COOK?tab=readme-ov-file#declaration">Declaration</a> for an example). Furthermore, any line of code that does not contain one of the top-level keys will by default be considered a comment in its entireity and will be ignored by the compiler.
+
+<h2>Reference Keys</h2>
+
+Reference keys are the most important and the most simple part of coding in COOK. Since you have the ability to determine the majority of the syntax, COOK uses reference keys to filter out important tokens such as target variable names and assigned values. Before accessing a variable by its name, or using a plain integer for certain operations, you will need to precede it by the appropriate reference. Most of the time you'll use the article `the`, with a few exceptions. Similar to a reference key, when using a plain string (like printing **_hello world_**), you will need to encase it in quotation marks like a lot of other languages.
+
+You still have complete freedom over how you want to write your code — just make sure all the required parameters/tokens are included and referenced in the correct order (since x-y != y-x). 
+
+
 
 <p> </p>
-<h1>Declaration</h1>
+<h1>Variable Declaration</h1>
 
-COOK supports two variable types: integers and strings. As with all processes in COOK, you will need to signal to the compiler that you intend to declare a variable using a key: ``measure`` for integers and ``prepare`` for strings. The stripped-down syntax for both declarations is as follows:
+COOK supports two variable types: integers and strings. As with all processes in COOK, you will need to signal to the compiler that you intend to declare a variable using a key: ``measure`` for integers and ``prepare`` for strings. if you choose not to initialize an integer variable with a value, it will default to 0 in order to avoid any null exceptions.
+
+The stripped-down syntax for both declarations is as follows:
 ```
 Measure 5 cups of int-name
 Prepare a bowl of "string-value" brand string-name
 ```
-COOK utilizes reference keys to point to relevant tokens such as variable names and their values (this reference key is usually the article `the`) and the creation of variables is no exception. When declaring a variable name, make sure to precede it with `of`. For integers, if you choose not to initialize the variable with a value, it will default to 0 in order to avoid any null exceptions.
-
-COOK is a forgiving language when it comes to syntax. You can have complete freedom when it comes to adding punctuation, capitalization, filler text, putting the declaration/operation keys at the end of the line, or even putting integer values in the middle of a word — just make sure all the required parameters/tokens are included and referenced in the correct order (since x-y != y-x). For example, all of the following lines of code are valid and equivalent:
+As mentioned earlier, COOK's <a href="https://github.com/ishaan-awasthi/COOK?tab=readme-ov-file#keys">forgiving syntax</a> allows you to write code whichever way you'd like, as long as variables are accessed in order. For example, all of the following lines of code are valid and equivalent:
 ```
 of int-name 5 pinches measure
 Thou shalt take 5, goblets of int-name. And measure it.
-It's beginning to look a lot like Christmas, so pour a gl5ss of int-name!!! and deck the halls with boughs of holly (and don't forget to measure!)
+It's beginning to look a lot like Ch5istmas, so pour a glass of int-name!!! and deck the halls with boughs of holly (and don't forget to measure!)
 ```
 Not really cooking-themed that time, but hopefully you get the idea. (_Psst... check out the included `sample.txt` code for an example of COOK's intended style!_)
 
@@ -158,10 +178,6 @@ Find how much of the intvariable you have.
 Find what brand of the stringvariable you have.
 ```
 In both cases, the compiler will pause execution until the user inputs a valid input.
-
-<h2>Inline Comments</h2>
-
-Now that you've learned all of the top-level keys, comments are a simple matter. As you already know, any word that isn't a relevant token (operation keys, argument keys, reference keys, or parameter values) is overlooked by the compiler, allowing for near total freedom of expression. As such, any line of code that does not contain one of the top-level keys will by default be considered a comment in its entireity. Secondary keys, such as conditional arguments, are fine to include as they only get tokenized when the corresponding top-level key is present. You can write whole novels in the middle of your code, so long as you don't use any of the top-level keys listed here!
 
 <h2>"Is Gone" Argument: Conditionals/Loops</h2>
 
