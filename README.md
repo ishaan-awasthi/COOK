@@ -46,7 +46,7 @@ The standard stream for both output and error handling (as well as runtime user 
 
 COOK utilizes a variety of keys in the lexer, such as top-level process keys that signal the general intention behind a line of code, second-level argument keys to modify the behavior of the top-level process, and reference keys that point to important tokens such as variable names and their values. These keys (and any parameters pointed to by a reference key) are the only parts of the code that are tokenized. 
 
-As such, COOK is an example of a forgiving language. You have complete freedom when it comes to adding filler text, punctuation, capitalization, putting the top-level process keys anywhere in the line, or even putting integer values in the middle of a word (see <a href="https://github.com/ishaan-awasthi/COOK?tab=readme-ov-file#declaration">Declaration</a> for an example). Furthermore, any line of code that does not contain one of the top-level keys will by default be considered a comment in its entireity and will be ignored by the compiler.
+As such, COOK is an example of a forgiving language. You have complete freedom when it comes to adding filler text, punctuation, capitalization, putting the top-level process keys anywhere in the line, or even putting integer values in the middle of a word (see <a href="https://github.com/ishaan-awasthi/COOK?tab=readme-ov-file#variable-declaration">Declaration</a> for an example). Furthermore, any line of code that does not contain one of the top-level keys will by default be considered a comment in its entireity and will be ignored by the compiler.
 
 <h2>Reference Keys</h2>
 
