@@ -59,7 +59,7 @@ You still have complete freedom over how you want to write your code — just ma
 <p> </p>
 <h1>Variable Declaration</h1>
 
-COOK supports two variable types: integers and strings. As with all processes in COOK, you will need to signal to the compiler that you intend to declare a variable using a key: ``measure`` for integers and ``prepare`` for strings. if you choose not to initialize an integer variable with a value, it will default to 0 in order to avoid any null exceptions.
+COOK supports two variable types: integers and strings. As with all processes in COOK, you will need to signal to the compiler that you intend to declare a variable using a key: `measure` for integers and `prepare` for strings. if you choose not to initialize an integer variable with a value, it will default to 0 in order to avoid any null exceptions. Variable declarations are one of the few exceptions to the reference rule, using the reference key `of`.
 
 The stripped-down syntax for both declarations is as follows:
 ```
@@ -74,7 +74,7 @@ It's beginning to look a lot like Ch5istmas, so pour a glass of int-name!!! and 
 ```
 Not really cooking-themed that time, but hopefully you get the idea. (_Psst... check out the included `sample.txt` code for an example of COOK's intended style!_)
 
-Also note that while (almost) any syntax works, for the purposes of this documentation I'll only be including simplified/contexual versions to ensure that the required parameters for each aspect of the functionality are clear.
+Also note that while (almost) any syntax works, for the rest of this documentation I'll only be including simplified/contexual versions to ensure that the required parameters for each aspect of the functionality are clear.
 
 
 
