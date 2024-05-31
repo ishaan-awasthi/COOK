@@ -1,7 +1,7 @@
 (This is an example of what a program/recipe written in COOK looks like!)
 .........................................................................
 
-Thanks for opening my cookbook! Today, we'll be making a simple balsamic glaze. This recipe makes a little over cups of glaze.
+Thanks for opening my cookbook! Today, we'll be making a simple balsamic glaze. This recipe makes a little OVER 20 cups of glaze.
 You need to first measure a proper size of pot to use for the boiling. Make sure it is large enough!
 
 Next, we'll go over ingredients (there aren't too many!)
