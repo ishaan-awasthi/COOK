@@ -5,7 +5,7 @@
 </p>
 
 <p>🎉 Welcome to COOK v1.0:</p>
-<p>⚡ A statically-typed & selectively-interpreted esoteric language...</p>
+<p>⚡ A statically-typed & selectively-interpreted esoteric DSL...</p>
 <p>💪 ...with a forgiving English syntax and built-in standard library!</p>
 <p>⭐ Drop me a star if you find this cool, it's like caffeine for my motivation.</p>
 <p> </p>
