@@ -98,7 +98,7 @@ The key for subtraction is `reduce`, and the reference key is `in the` for the v
 ```
 In the pot, reduce the chicken-stock from the soup.
 ```
-For subtraction/division/modulo, make sure to reference the variables in the correct orded to perform the intended computation.
+For subtraction/division/modulo, make sure to reference the variables in the correct order to perform the intended computation.
 
 <h2>Multiplication</h2>
 
