@@ -15,7 +15,7 @@
 
 <h1>Overview</h1>
 
-Novice coders are often told that coding is like cooking, and programs themselves are often compared to recipes. Inspired by this analogy, COOK (Compiler for Object-Oriented Keys) is an esoteric programming language that blends the art of cooking with the precision of code. Built on top of Java, the language balances pointed functionality with a plain-English syntax, making it intuitive to both beginners and **seasoned** programmers (pun intended). And, through the selective tokenization of compiler-defined keys, programs written in COOK are even crafted to resemble the recipes in a cookbook.
+Novice coders are often told that coding is like cooking, and programs themselves are often compared to recipes. Inspired by this analogy, COOK (Compiler for Object-Oriented Keys) is an esoteric programming language that blends the art of cooking with the precision of code. Built on top of C++, the language balances pointed functionality with a plain-English syntax, making it intuitive to both beginners and **seasoned** programmers (pun intended). And, through the selective tokenization of compiler-defined keys, programs written in COOK are even crafted to resemble the recipes in a cookbook.
 
 Grab your favorite spatula, and let's get started!
 
@@ -29,13 +29,13 @@ If you have git installed, you can just clone the repository to your Desktop:
 ```
 git clone https://github.com/ishaan-awasthi/COOK
 ```
-Create a new Java project in your preferred IDE. I'm partial to IntelliJ IDEA for Java, which automatically creates all the directories for the JDK. Whichever IDE you prefer, copy the Java class files from your clone to the `/src/` subdirectory in your created project.
+Create a new C++ project in your preferred IDE. I'm partial to VSCode for C++, makes the compilation process pretty simple. Whichever IDE you prefer, copy the .cpp and .h files from your clone to the `/src/` subdirectory in your created project.
 
-COOK programs are written line-by-line in `.txt` files. After cloning the repository, you'll need to edit the following line in the `Main.java` class to reference your COOK program:
+COOK programs are written line-by-line in `.txt` files. After cloning the repository, you'll need to edit the following line in the `main.cpp` class to reference your COOK program:
 ```
 Scanner scanner = new Scanner(new File(new File("").getAbsolutePath()+"/src/sample.txt"));
 ```
-The standard stream for both output and error handling (as well as runtime user input; see the section on COOK's <a href="https://github.com/ishaan-awasthi/COOK?tab=readme-ov-file#very-limited-standard-library">Standard Library</a>) is the process terminal of your IDE. After writing your code, you'll execute it via `Main.java` in your IDE itself.
+The standard stream for both output and error handling (as well as runtime user input; see the section on COOK's <a href="https://github.com/ishaan-awasthi/COOK?tab=readme-ov-file#very-limited-standard-library">Standard Library</a>) is the process terminal of your IDE. After writing your code, you'll execute it via `main.cpp` in your IDE itself.
 
 
 
@@ -163,7 +163,7 @@ Finally, COOK has a built-in Standard Library with a limited implementation of u
 
 <h2>"Serve" Key: Output</h2>
 
-Likely to be your most used of the built-in functions, `serve` is the key serving as COOK's equivalent to Python's `print` or Java's `System.out` (which COOK by nature utilizes). You can use it to display variables and standalone strings to the standard output stream (your IDE's process terminal). Usage is as follows:
+Likely to be your most used of the built-in functions, `serve` is the key serving as COOK's equivalent to Python's `print` or C++'s `<iostream>` (which COOK by nature utilizes). You can use it to display variables and standalone strings to the standard output stream (your IDE's process terminal). Usage is as follows:
 ```
 Serve the "potatoes".
 Serve the potatoes.
@@ -185,7 +185,7 @@ In addition to the variable-variable comparisons utilized by COOK's conditionals
 
 <h2>Alternative Filetypes</h2>
 
-While the standard input for COOK is `.txt` files, certain other filetypes may also work. Alternative filetypes range from `.md`, to `.csv`, all the way to even `.py`; if it can be accessed and read as plain text, it should theoretically be compatible with COOK. However, depending on your JDK version, `.java` files themselves may fail as the `util.Scanner` module processes them differently and will expect some kind of class declaration in the header.
+While the standard input for COOK is `.txt` files, certain other filetypes may also work. Alternative filetypes range from `.md`, to `.csv`, all the way to even `.py`; if it can be accessed and read as plain text, it should theoretically be compatible with COOK. However, depending on your compiler, `.cpp` files themselves may fail as the `<fstream>` module processes them differently and will expect some kind of class declaration in the header.
 
 
 
