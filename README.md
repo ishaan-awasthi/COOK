@@ -1,7 +1,7 @@
 > "Why programmers like cooking: you peel the carrot, you chop the carrot, and you put the carrot in the stew.  You don’t suddenly find out that your peeler is several versions behind and they dropped support for carrots in 4.3." —Randall Koutnik
 
 <p align="center">
-  <img src="https://ibb.co/fYJ5kYdH" alt="Screenshot-2024-04-25-at-1-25-01-PM-removebg-preview-1-6" border="0">
+  <img src="graphic.png" alt="Screenshot-2024-04-25-at-1-25-01-PM-removebg-preview-1-6" border="0">
 </p>
 
 <p>🎉 Welcome to COOK v1.0:</p>
